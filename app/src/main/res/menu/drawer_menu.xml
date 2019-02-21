@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item android:title="Normal odds">
+        <menu>
+            <group
+                android:id="@+id/submenu_normal"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_D1"
+                    android:icon="@drawable/ic_fiber_manual_record_black_24dp"
+                    android:title="DOUBLE 1"/>
+                <item
+                    android:id="@+id/nav_elite3"
+                    android:icon="@drawable/ic_fiber_manual_record_black_24dp"
+                    android:title="ELITE 3"/>
+                <item
+                    android:id="@+id/nav_doubleOrNothing"
+                    android:icon="@drawable/ic_fiber_manual_record_black_24dp"
+                    android:title="DOUBLE OR NOTHING"/>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Low odds">
+        <menu>
+            <group
+                android:id="@+id/submenu_low"
+                android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_D2"
+                    android:icon="@drawable/ic_fiber_manual_record_black_24dp"
+                    android:title="DOUBLE 2"/>
+                <item
+                    android:id="@+id/nav_fullOver"
+                    android:icon="@drawable/ic_fiber_manual_record_black_24dp"
+                    android:title="FULL OVER"/>
+                <item
+                    android:id="@+id/nav_elite4"
+                    android:icon="@drawable/ic_fiber_manual_record_black_24dp"
+                    android:title="ELITE 4"/>
+            </group>
+        </menu>
+    </item>
+
+</menu>
