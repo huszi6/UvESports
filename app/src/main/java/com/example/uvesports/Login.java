@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
@@ -15,24 +16,27 @@ import com.backendless.exceptions.BackendlessFault;
 
 public class Login extends AppCompatActivity {
 
-    private Button btn_login;
-    private EditText editText1,editText2;
+    private Button btn_login, btnGoToRegister;
+    private EditText etMail, etPassword;
+    private TextView tv_Reset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        btn_login = findViewById(R.id.btn_login);
-        editText1 = findViewById(R.id.editText1);
-        editText2 = findViewById(R.id.editText2);
+        btn_login = findViewById(R.id.btnLogin);
+        etMail = findViewById(R.id.etMail);
+        etPassword = findViewById(R.id.etPassword);
+        tv_Reset = findViewById(R.id.tv_Reset);
+        btnGoToRegister = findViewById(R.id.btnGoToRegister);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String email = editText1.getText().toString().trim();
-                String password = editText2.getText().toString().trim();
+                String email = etMail.getText().toString().trim();
+                String password = etPassword.getText().toString().trim();
 
                 Backendless.UserService.login(email, password, new AsyncCallback<BackendlessUser>() {
                     @Override
@@ -49,6 +53,43 @@ public class Login extends AppCompatActivity {
                     }
                 }, true);
 
+            }
+        });
+
+        tv_Reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (etMail.getText().toString().isEmpty()){
+                    Toast.makeText(Login.this, "Please enter your email address in the email field!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    String email = etMail.getText().toString().trim();
+
+                    Backendless.UserService.restorePassword(email, new AsyncCallback<Void>() {
+                        @Override
+                        public void handleResponse(Void response) {
+                            Toast.makeText(Login.this, "Reset instructions sent to email address!", Toast.LENGTH_SHORT).show();
+
+                        }
+
+                        @Override
+                        public void handleFault(BackendlessFault fault) {
+                            Toast.makeText(Login.this, "Error: " + fault, Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+                }
+
+            }
+        });
+
+        btnGoToRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, Register.class);
+                startActivity(intent);
             }
         });
 
