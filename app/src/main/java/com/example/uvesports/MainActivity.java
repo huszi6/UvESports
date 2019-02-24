@@ -30,11 +30,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new D1Fragment()).commit();
             navigationView.setCheckedItem(R.id.nav_D1);
             toolbar.setTitle("DOUBLE 1");
@@ -45,9 +45,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case R.id.nav_D1:
-                /*getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new D1Fragment()).commit();
-                toolbar.setTitle("DOUBLE 1");*/
-                startActivity(new Intent(MainActivity.this,D1List.class));
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new D1Fragment()).commit();
+                toolbar.setTitle("DOUBLE 1");
+//                startActivity(new Intent(MainActivity.this, D1List.class));
                 break;
             case R.id.nav_doubleOrNothing:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DoubleornothingFragment()).commit();

@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Register"></activity>
+        <activity android:name=".Register"/>
         <activity android:name=".D1List" />
         <activity
             android:name=".MainActivity"
