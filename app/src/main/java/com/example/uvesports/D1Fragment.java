@@ -40,7 +40,8 @@ public class D1Fragment extends Fragment {
         lvList = view.findViewById(R.id.lvList);
 
         DataQueryBuilder queryBuilder = DataQueryBuilder.create();
-        queryBuilder.setGroupBy("date_of DESC");
+        queryBuilder.addSortBy("created DESC");
+        //queryBuilder.setGroupBy("date_of DESC");
 
         Backendless.Persistence.of(D1.class).find(queryBuilder, new AsyncCallback<List<D1>>() {
             @Override
