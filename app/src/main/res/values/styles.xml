@@ -14,6 +14,13 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="AppTheme.NoActionBar1">
+        <item name="windowActionBar">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">#1287A5</item>
+
+    </style>
+
     <style name="MyStyle">
         <item name="android:imeOptions">actionNext</item>
         <item name="android:singleLine">true</item>

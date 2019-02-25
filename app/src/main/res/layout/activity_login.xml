@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:visibility="visible"
     tools:context=".Login"
-    style="@style/Theme.AppCompat.DayNight.NoActionBar"
+    style="@style/AppTheme.NoActionBar1"
     >
 
     <ImageView
