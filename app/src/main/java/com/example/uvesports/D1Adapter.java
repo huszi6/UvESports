@@ -1,6 +1,7 @@
 package com.example.uvesports;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -42,6 +43,18 @@ public class D1Adapter extends ArrayAdapter<D1> {
         d1_pick.setText(d1.get(position).getPick());
         d1_odds.setText(d1.get(position).getOdds());
         d1_outcome.setText(d1.get(position).getOutcome());
+
+        if(d1_outcome.getText().toString().equals("WIN")){
+            d1_outcome.setTextColor(Color.parseColor("#10A881"));
+        }
+        else if (d1_outcome.getText().toString().equals("LOSE"))
+        {
+            d1_outcome.setTextColor(Color.parseColor("#FF4848"));
+        }
+        else
+            d1_outcome.setTextColor(Color.parseColor("#99AAAB"));
+
+
 
         return convertView;
     }
