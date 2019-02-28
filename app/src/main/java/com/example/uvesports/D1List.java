@@ -27,8 +27,8 @@ public class D1List extends AppCompatActivity {
 
         lvList = findViewById(R.id.lvList);
 
-        DataQueryBuilder queryBuilder = DataQueryBuilder.create();
-        queryBuilder.setGroupBy("date_of DESC");
+        final DataQueryBuilder queryBuilder = DataQueryBuilder.create();
+        queryBuilder.setSortBy("date_of DESC");
 
         Backendless.Persistence.of(D1.class).find(queryBuilder, new AsyncCallback<List<D1>>() {
             @Override
@@ -36,6 +36,7 @@ public class D1List extends AppCompatActivity {
 
                 adapter = new D1Adapter(D1List.this,response);
                 lvList.setAdapter(adapter);
+
 
             }
 

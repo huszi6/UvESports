@@ -2,6 +2,7 @@ package com.example.uvesports;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
 
+
+
         drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -35,10 +38,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null) {
+       if (savedInstanceState == null) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new D1Fragment()).commit();
             navigationView.setCheckedItem(R.id.nav_D1);
             toolbar.setTitle("DOUBLE 1");
+
         }
     }
 
